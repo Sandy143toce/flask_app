@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Student Login</title>
+ 
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="signup.css" rel="stylesheet">
+    <link rel ="stylesheet" type="text/css" href="/static/style4.css"></link>
+    <script src="static/jquery-3.4.1.min.js"></script>
+  </head>
+  <style>
+      body
+      {
+      background-image: url(/static/download7.jpg);
+      }
+      </style>
+       <script>
+          $(function() {
+        $('#btnSignUp').click(function() {
+     
+            $.ajax({
+                url: '/login',
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function(response) {
+                    console.log(response);
+                    response = JSON.parse(response)
+                    window.location.href = "/show_details?student_id="+response['student_id']
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+        </script>
+
+  <body>
+ 
+    <div">
+      <center>
+      <a href="/" class="linkspart" > <b> Home </b> </a>&nbsp &nbsp &nbsp &nbsp
+      <a href="activities.html"  class="linkspart" target="_blank"> <b> Activities </b> </a>&nbsp &nbsp &nbsp &nbsp
+      <a href="showSignUp" class="linkspart" target="_blank"> <b> Signup </b> </a>&nbsp &nbsp &nbsp &nbsp
+      <a href="showlogin" class="linkspart" target="_blank"> <b> Login </b> </a>&nbsp &nbsp &nbsp &nbsp
+      <a href="about.htm" class="linkspart" target="_blank"> <b> About Us </b> </a>&nbsp &nbsp &nbsp &nbsp
+      </center>
+      </div>
+      <div class="container">
+            <h2>Student Login</h2>
+            <form>  
+              <div class="form-group">
+                  <label for="inputEmail" class="sr-only">Email address</label>
+                  <input type="email" name="inputemail" id="inputemail" class="form-control" placeholder="Email address" required autofocus>
+              </div>
+              <div class="form-group">
+                  <label for="inputPassword" class="sr-only">Password</label>
+                  <input type="password" name="inputpassword" id="inputpassword" class="form-control" placeholder="Password" required>
+              </div>         
+              <button id="btnSignUp"  type="button" class="btn btn-primary" >Submit</button>
+            </form>
+        </div>
+ 
+       
+ 
+      <footer class="footer">
+      </footer>
+ 
+    </div>
+  </body>
