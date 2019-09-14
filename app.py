@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-app.secret_key = "sandip"
+app.secret_key = "sandipdas"
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
